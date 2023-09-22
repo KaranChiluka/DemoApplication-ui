@@ -98,3 +98,13 @@ code {
 .btn-block button:hover {
   background: #a72037 !important;
 }
+
+.signup {
+  font-family: 'Ambit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration-line: underline;
+  margin-top: 5px;
+  text-align: end;
+}
