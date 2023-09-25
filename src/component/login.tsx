@@ -57,7 +57,7 @@ const Login = () => {
 
   return (
     <div className='new-login'>
-      <div style={{ position: 'absolute', top: '20px', left: '20px' }}>
+      <div className='welcome' style={{ position: 'absolute', top: '20px', left: '20px' }}>
         <span>
           <h1>DemoApplication</h1>
         </span>
