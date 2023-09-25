@@ -26,25 +26,25 @@ const Signup = () => {
             </div>
             <form>
               <div>
-                <InputLabel className='input-lable' htmlFor='email'>
+                <InputLabel className='input-label' htmlFor='email'>
                   Email:
                 </InputLabel>
                 <TextField className='new-form-field' />
               </div>
               <div>
-                <InputLabel className='input-lable' htmlFor='username'>
+                <InputLabel className='input-label' htmlFor='username'>
                   Username:
                 </InputLabel>
                 <TextField id='username' className='new-form-field' />
               </div>
               <div>
-                <InputLabel className='input-lable' htmlFor='password'>
+                <InputLabel className='input-label' htmlFor='password'>
                   Password:
                 </InputLabel>
                 <TextField className='new-form-field' />
               </div>
               <div>
-                <InputLabel className='input-lable' htmlFor='phoneNumber'>
+                <InputLabel className='input-label' htmlFor='phoneNumber'>
                   PhoneNumber:
                 </InputLabel>
                 <TextField className='new-form-field' />

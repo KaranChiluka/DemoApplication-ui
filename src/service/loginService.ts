@@ -1,5 +1,5 @@
 import axiosClient from '../common/axiosClient';
 
-export async function getUsers() {
-  return axiosClient.get('/post');
+export async function getUsers(req: any) {
+  return axiosClient.post('/security/login', req);
 }

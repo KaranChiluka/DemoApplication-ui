@@ -12,12 +12,13 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 // import Signup from './signup';
 import useNavigate from '../common/useNavigate';
+import { getUsers } from '../service/loginService';
 
 const Login = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('refreshtoken');
   const signInSchema = Yup.object().shape({
-    username: Yup.string().email('Please enter valid email').required('Email is required'),
+    username: Yup.string().required('Username is required'),
     password: Yup.string().required('Password is required'),
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -28,8 +29,10 @@ const Login = () => {
   };
 
   const login = (values: any) => {
-    if (values) alert('Sucessfull Login');
-    else alert('Unsucessfull Login');
+    getUsers(values).then((resp) => {
+      console.log(resp);
+      // localStorage.setItem('token',resp.data.token)
+    });
   };
 
   const formik = useFormik({

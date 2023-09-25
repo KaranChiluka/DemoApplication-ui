@@ -2,7 +2,7 @@ import axios, { AxiosError } from 'axios';
 import { redirectToLogin } from './commonUtils';
 
 const axiosClient = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
+  baseURL: 'http://172.17.5.169:8080/api',
 });
 
 axiosClient.interceptors.request.use((config) => {
