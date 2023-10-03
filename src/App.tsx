@@ -1,37 +1,38 @@
 import './App.css';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 import React from 'react';
-// const getLoginUrl = () => {
-//   return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
-// };
+
+const getLoginUrl = () => {
+  return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
+};
 
 export default function App() {
-  //   const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
   return (
     <div className='App'>
       <React.Fragment>
-        {/* {token && ( */}
-        <div>
-          <>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <div>
-                <Box>
-                  <Outlet />
-                </Box>
-              </div>
-            </LocalizationProvider>
-          </>
-        </div>
-        {/* )}
+        {token && (
+          <div>
+            <>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <div>
+                  <Box>
+                    <Outlet />
+                  </Box>
+                </div>
+              </LocalizationProvider>
+            </>
+          </div>
+        )}
         {!token && (
           <div>
             <h1>hiiiiiii</h1>
             <Navigate to={getLoginUrl()} />
           </div>
-        )} */}
+        )}
         {/* <div>
           <h1>hiiiiiii</h1>
           <Navigate to={getLoginUrl()} />
