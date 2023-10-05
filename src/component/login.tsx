@@ -12,6 +12,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 // import Signup from './signup';
 import useNavigate from '../common/useNavigate';
+import { getUsers } from '../service/loginService';
 // import { getUsers } from '../service/loginService';
 
 const Login = () => {
@@ -29,17 +30,22 @@ const Login = () => {
   };
 
   const login = (values: any) => {
-    // getUsers(values).then((resp) => {
-    //   console.log(resp);
-    //   localStorage.setItem('token', resp.data.token);
-    // });
-    localStorage.setItem('token', values);
-    navigate([
-      {
-        label: 'Home',
-        link: '/home',
-      },
-    ]);
+    getUsers(values)
+      .then((resp) => {
+        console.log(resp);
+        localStorage.setItem('token', resp.data.token);
+        navigate([
+          {
+            label: 'Home',
+            link: '/home',
+          },
+        ]);
+      })
+      .catch((err) => {
+        console.log(err);
+        alert('unsuccessfull login');
+      });
+    // localStorage.setItem('token', values);
   };
 
   const formik = useFormik({
