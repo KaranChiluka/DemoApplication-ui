@@ -2,12 +2,12 @@ import { Button, InputLabel, TextField } from '@mui/material';
 import useNavigate from '../common/useNavigate';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { saveUser, gethealth } from '../service/loginService';
+import { saveUser } from '../service/loginService';
 const Signup = () => {
   const [navigate] = useNavigate();
   const signInSchema = Yup.object().shape({
     email: Yup.string().required('Email is required'),
-    username: Yup.string().required('Username is required'),
+    name: Yup.string().required('Username is required'),
     password: Yup.string().required('Password is required'),
     phoneNumber: Yup.string().required('PhoneNumber is required'),
   });
@@ -15,7 +15,7 @@ const Signup = () => {
   const formik = useFormik({
     initialValues: {
       email: '',
-      username: '',
+      name: '',
       password: '',
       phoneNumber: '',
     },
@@ -26,29 +26,30 @@ const Signup = () => {
   });
 
   const signup = (value: any) => {
-    gethealth()
-      .then((resp) => {
-        console.log(resp);
-        alert('Sucessfully login');
-      })
-      .catch((err) => {
-        console.log(err);
-        alert('unsucessfull login');
-      });
+    console.log(value);
+    // gethealth()
+    //   .then((resp) => {
+    //     console.log(resp);
+    //     alert('Sucessfully login');
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     alert('unsucessfull login');
+    //   });
     saveUser(value)
       .then((resp) => {
         console.log(resp.data);
         alert('sucessfully login');
+        navigate([
+          {
+            label: 'Login',
+            link: '/login',
+          },
+        ]);
       })
       .catch((err) => {
         console.log(err);
         alert('unSucessfull login');
-        // navigate([
-        //   {
-        //     label: 'Home',
-        //     link: '/home',
-        //   },
-        // ]);
       });
   };
 
@@ -91,20 +92,20 @@ const Signup = () => {
                 <div className='err-msg'>{formik.errors.email}</div>
               ) : null}
               <div>
-                <InputLabel className='input-label' htmlFor='username'>
+                <InputLabel className='input-label' htmlFor='name'>
                   Username:
                 </InputLabel>
                 <TextField
-                  id='username'
+                  id='name'
                   className='new-form-field'
-                  value={formik.values.username}
-                  error={formik.touched.username && Boolean(formik.errors.username)}
+                  value={formik.values.name}
+                  error={formik.touched.name && Boolean(formik.errors.name)}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
               </div>
-              {formik.touched.username && formik.errors.username ? (
-                <div className='err-msg'>{formik.errors.username}</div>
+              {formik.touched.name && formik.errors.name ? (
+                <div className='err-msg'>{formik.errors.name}</div>
               ) : null}
               <div>
                 <InputLabel className='input-label' htmlFor='password'>
