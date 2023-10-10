@@ -74,7 +74,16 @@
 .initials {
   color: #0c5e94;
   background-color: #fff;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: larger;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 20px;
+  min-width: 40px;
+  min-height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }

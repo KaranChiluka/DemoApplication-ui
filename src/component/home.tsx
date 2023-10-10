@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from '../common/navBar';
-import { Button } from '@mui/material';
-import FirstPage from './firstPage';
+import { allUsers } from '../service/loginService';
 
 const Home = () => {
-  const [firstImg, setFirstImg] = useState(false);
-  const [secondImg, setSecondImg] = useState(false);
+  const [data, setData] = useState([] as any[]);
+
+  useEffect(() => {
+    allUsers()
+      .then((resp) => setData(resp.data))
+      .catch((err) => alert('err' + err));
+  });
 
   return (
     <div>
       <NavBar />
-      <div
-        className='btn-block'
-        style={{ display: 'flex', flexWrap: 'wrap', backgroundColor: '#0c5e94' }}>
-        <Button
-          onClick={(_e) => {
-            setFirstImg(true);
-            setSecondImg(false);
-          }}>
-          First page
-        </Button>
-        <Button
-          onClick={(_e) => {
-            setFirstImg(false);
-            setSecondImg(true);
-          }}>
-          Second page
-        </Button>
-      </div>
       <div>
-        {firstImg && <FirstPage image='first' />}
-        {secondImg && <FirstPage image='second' />}
+        <table>
+          <thead>
+            <tr>
+              <th>username</th>
+              <th>email</th>
+              <th>phoneNumber</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((data, index) => (
+              <tr key={index}>
+                <td>{data}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

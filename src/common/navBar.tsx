@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './navBar.css';
 import useNavigate from '../common/useNavigate';
+import { Menu, MenuItem } from '@mui/material';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 const NavBar = () => {
-  const [navigate] = useNavigate();
+  const [navigate, redirect] = useNavigate();
   const [parentPath, setParentPath] = useState('');
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   useEffect(() => {
     if (location.pathname === '/') {
@@ -48,6 +52,19 @@ const NavBar = () => {
     ]);
   };
 
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleOpenMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem('Authorization');
+    redirect('/login');
+  };
+
   return (
     <div className='nav-bar' id='nav-bar'>
       <div className='left-div'>
@@ -67,10 +84,35 @@ const NavBar = () => {
       <div className='right-div'>
         <div className='user-name'>
           <p>User Name</p>
-          <p>userrole</p>
+          <p>user@gmail.com</p>
         </div>
         {/*User Initials*/}
-        <div className='initials'>UI</div>
+        <div className='initials' onClick={handleOpenMenu}>
+          UN
+        </div>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          onClose={handleCloseMenu}
+          disableAutoFocusItem>
+          <MenuItem>
+            <SettingsIcon sx={{ paddingRight: '10px' }} />
+            Settings
+          </MenuItem>
+          <MenuItem onClick={handleLogOut}>
+            <PowerSettingsNewIcon sx={{ paddingRight: '10px' }} />
+            Logout
+          </MenuItem>
+        </Menu>
       </div>
     </div>
   );

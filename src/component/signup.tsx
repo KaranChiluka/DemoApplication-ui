@@ -7,7 +7,8 @@ const Signup = () => {
   const [navigate] = useNavigate();
   const signInSchema = Yup.object().shape({
     email: Yup.string().required('Email is required'),
-    name: Yup.string().required('Username is required'),
+    firstName: Yup.string().required('FirstName is required'),
+    lastName: Yup.string().required('LastName is required'),
     password: Yup.string().required('Password is required'),
     phoneNumber: Yup.string().required('PhoneNumber is required'),
   });
@@ -15,7 +16,8 @@ const Signup = () => {
   const formik = useFormik({
     initialValues: {
       email: '',
-      name: '',
+      firstName: '',
+      lastName: '',
       password: '',
       phoneNumber: '',
     },
@@ -92,20 +94,36 @@ const Signup = () => {
                 <div className='err-msg'>{formik.errors.email}</div>
               ) : null}
               <div>
-                <InputLabel className='input-label' htmlFor='name'>
-                  Username:
+                <InputLabel className='input-label' htmlFor='firstName'>
+                  FirstName:
                 </InputLabel>
                 <TextField
-                  id='name'
+                  id='firstName'
                   className='new-form-field'
-                  value={formik.values.name}
-                  error={formik.touched.name && Boolean(formik.errors.name)}
+                  value={formik.values.firstName}
+                  error={formik.touched.firstName && Boolean(formik.errors.firstName)}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 />
               </div>
-              {formik.touched.name && formik.errors.name ? (
-                <div className='err-msg'>{formik.errors.name}</div>
+              {formik.touched.firstName && formik.errors.firstName ? (
+                <div className='err-msg'>{formik.errors.firstName}</div>
+              ) : null}
+              <div>
+                <InputLabel className='input-label' htmlFor='lastName'>
+                  LastName:
+                </InputLabel>
+                <TextField
+                  id='lastName'
+                  className='new-form-field'
+                  value={formik.values.lastName}
+                  error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+              </div>
+              {formik.touched.lastName && formik.errors.lastName ? (
+                <div className='err-msg'>{formik.errors.lastName}</div>
               ) : null}
               <div>
                 <InputLabel className='input-label' htmlFor='password'>

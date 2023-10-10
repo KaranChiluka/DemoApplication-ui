@@ -8,6 +8,10 @@ export async function getUsers(req: any) {
   return axiosClient.post('/security/login', req);
 }
 
+export async function allUsers() {
+  return axiosClient.get('/users');
+}
+
 export async function gethealth() {
   return axiosClient.get('/actuator/health');
 }
