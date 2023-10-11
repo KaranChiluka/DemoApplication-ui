@@ -9,7 +9,7 @@ export async function getUsers(req: any) {
 }
 
 export async function allUsers() {
-  return axiosClient.get('/users');
+  return axiosClient.get('security/all');
 }
 
 export async function gethealth() {

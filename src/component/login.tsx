@@ -31,6 +31,7 @@ const Login = () => {
   const login = (values: any) => {
     getUsers(values)
       .then((resp) => {
+        console.log(resp);
         localStorage.setItem('token', resp.data.token);
         navigate([
           {
