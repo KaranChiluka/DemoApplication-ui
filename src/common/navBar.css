@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;
   background-color: #282c34;
+  /* background-color: white; */
+  border-bottom: 1px solid black;
   position: sticky;
   z-index: 100;
   min-height: 40px;
@@ -48,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: white; /*lightmode*/
   font-size: 15px;
   font-weight: 400;
   cursor: pointer;
@@ -58,6 +60,8 @@
   overflow: hidden;
   border-top: 5px solid #282c34;
   border-bottom: 5px solid #282c34;
+  /* border-top: 5px solid #ffffff;
+  border-bottom: 5px solid #fff; */
   /* transition: border-bottom 0.5s; */
   /* -webkit-transition-duration: 0.4s; Safari */
   transition-duration: 0.4s;

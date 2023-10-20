@@ -4,6 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Navigate, Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
 import React from 'react';
+import NavBar from './common/navBar';
 
 const getLoginUrl = () => {
   return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
@@ -18,11 +19,14 @@ export default function App() {
           <div>
             <>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <div>
-                  <Box>
-                    <Outlet />
-                  </Box>
-                </div>
+                <>
+                  <NavBar />
+                  <div>
+                    <Box>
+                      <Outlet />
+                    </Box>
+                  </div>
+                </>
               </LocalizationProvider>
             </>
           </div>

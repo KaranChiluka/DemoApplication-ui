@@ -65,6 +65,16 @@ const NavBar = () => {
     redirect('/login');
   };
 
+  const handleSettings = () => {
+    navigate([
+      {
+        label: 'UserSettings',
+        link: '/settings',
+      },
+    ]);
+    setAnchorEl(null);
+  };
+
   return (
     <div className='nav-bar' id='nav-bar'>
       <div className='left-div'>
@@ -104,7 +114,7 @@ const NavBar = () => {
           }}
           onClose={handleCloseMenu}
           disableAutoFocusItem>
-          <MenuItem>
+          <MenuItem onClick={handleSettings}>
             <SettingsIcon sx={{ paddingRight: '10px' }} />
             Settings
           </MenuItem>

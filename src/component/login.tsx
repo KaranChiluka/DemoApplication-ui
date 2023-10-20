@@ -31,7 +31,6 @@ const Login = () => {
   const login = (values: any) => {
     getUsers(values)
       .then((resp) => {
-        console.log(resp);
         localStorage.setItem('token', resp.data.token);
         navigate([
           {
@@ -39,7 +38,6 @@ const Login = () => {
             link: '/home',
           },
         ]);
-        console.log(resp);
         alert('successfull login');
       })
       .catch((err) => {

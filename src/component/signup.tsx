@@ -28,20 +28,8 @@ const Signup = () => {
   });
 
   const signup = (value: any) => {
-    console.log(value);
-    // gethealth()
-    //   .then((resp) => {
-    //     console.log(resp);
-    //     alert('Sucessfully login');
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     alert('unsucessfull login');
-    //   });
     saveUser(value)
-      .then((resp) => {
-        console.log(resp.data);
-        alert('sucessfully login');
+      .then((_resp) => {
         navigate([
           {
             label: 'Login',

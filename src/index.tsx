@@ -7,6 +7,7 @@ import ErrorPage from './error-page';
 import Login from './component/login';
 import Home from './component/home';
 import Signup from './component/signup';
+import UserSettings from './user-settings/userSettings';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Home />,
+      },
+      {
+        path: '/settings',
+        element: <UserSettings />,
       },
     ],
   },

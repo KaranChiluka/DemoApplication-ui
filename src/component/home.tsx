@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import NavBar from '../common/navBar';
 import { allUsers } from '../service/loginService';
 import { Button } from '@mui/material';
+// import Games from './games';
 
 const Home = () => {
   const [data, setData] = useState([] as any[]);
@@ -21,37 +21,42 @@ const Home = () => {
           });
         });
         setData([...respObj]);
-        console.log(resp.data);
       })
       .catch((err) => alert('err' + err));
   };
 
   return (
     <div>
-      <NavBar />
-      <div>
-        <Button onClick={handleTable}>Add Table</Button>
-        {tables && (
-          <table>
-            <thead>
-              <tr>
-                <th>username</th>
-                <th>email</th>
-                <th>phoneNumber</th>
+      <Button onClick={handleTable}>Add Table</Button>
+      <Button
+        onClick={() => {
+          setTables(false);
+        }}>
+        Remove Table
+      </Button>
+      {tables && (
+        <table>
+          <thead>
+            <tr>
+              <th>username</th>
+              <th>email</th>
+              <th>phoneNumber</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((data, index) => (
+              <tr key={index}>
+                <td>{data.username}</td>
+                <td>{data.email}</td>
+                <td>{data.phoneNumber}</td>
               </tr>
-            </thead>
-            <tbody>
-              {data.map((data, index) => (
-                <tr key={index}>
-                  <td>{data.username}</td>
-                  <td>{data.email}</td>
-                  <td>{data.phoneNumber}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </div>
+            ))}
+          </tbody>
+        </table>
+      )}
+      {/* <div>
+        <Games id={2} color={'black'} />
+      </div> */}
     </div>
   );
 };

@@ -4,6 +4,7 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(240, 240, 240);
 }
 
 code {
@@ -132,4 +133,56 @@ code {
   margin-bottom: 10px;
   font-size: 16px;
   text-align: left;
+}
+
+.balloon {
+  max-width: 200px;
+}
+
+.balloon--moving {
+  animation: balloon-moving 5s ease-in-out 1s infinite alternate;
+  transform-origin: 50% 300%;
+}
+
+@keyframes balloon-moving {
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+svg {
+  width: 100%;
+  vertical-align: middle;
+}
+
+table {
+  height: 100%;
+  min-height: 50vh;
+  width: 70%;
+  min-width: 70vw;
+}
+
+table,
+th,
+td {
+  margin: auto;
+}
+
+th {
+  border: 1px solid white;
+  border-bottom: #000000;
+  color: white;
+  background-color: rgba(100, 100, 100);
+}
+
+/* tr {
+  border: 1px solid black;
+  border-bottom: #000000;
+} */
+.profile {
+  background-image: url(assets/download.png);
+  background-size: cover;
 }
