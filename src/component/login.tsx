@@ -38,7 +38,6 @@ const Login = () => {
             link: '/home',
           },
         ]);
-        alert('successfull login');
       })
       .catch((err) => {
         console.log(err);

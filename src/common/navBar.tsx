@@ -4,6 +4,8 @@ import useNavigate from '../common/useNavigate';
 import { Menu, MenuItem } from '@mui/material';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import SettingsIcon from '@mui/icons-material/Settings';
+import globalObject from './global-variable';
+import { getInitials } from './commonUtils';
 
 const NavBar = () => {
   const [navigate, redirect] = useNavigate();
@@ -38,10 +40,10 @@ const NavBar = () => {
       label: 'Home',
       link: '/home',
     },
-    {
-      label: 'ErrorPage',
-      link: '/error',
-    },
+    // {
+    //   label: 'ErrorPage',
+    //   link: '/error',
+    // },
   ];
 
   const handleTabs = (tab: any) => {
@@ -93,12 +95,15 @@ const NavBar = () => {
       </div>
       <div className='right-div'>
         <div className='user-name'>
-          <p>User Name</p>
-          <p>user@gmail.com</p>
+          <p
+            style={{
+              fontWeight: 'bold',
+            }}>{`${globalObject.userObject.firstName} ${globalObject.userObject.lastName}`}</p>
+          <p>{globalObject.userObject.email}</p>
         </div>
         {/*User Initials*/}
         <div className='initials' onClick={handleOpenMenu}>
-          UN
+          {getInitials(globalObject.userObject)}
         </div>
         <Menu
           anchorEl={anchorEl}

@@ -26,21 +26,14 @@ const UserSettings = () => {
 
   useEffect(() => setSelectedTab(SETTINGS_TABS.PROFILE), []);
   return (
-    <Box
-      sx={{
-        backgroundColor: 'rgb(240,240,240)',
-        backgroundSize: 'cover',
-        height: '100%',
-        width: '100%',
-        minHeight: '100vh',
-      }}>
+    <Box sx={{ backgroundBlendMode: 'darken' }}>
       <Grid container spacing={2}>
         <Grid item xs={2}>
           <nav aria-label='user settings'>
-            <List>
+            <List sx={{ borderRight: '1px solid #888', marginTop: '8px' }} disablePadding={true}>
               <ListItem
                 sx={{
-                  borderBottom: '1px dotted #888',
+                  borderBottom: '1px solid #888',
                   textAlign: 'center',
                   backgroundColor: 'black',
                   opacity: '4px',
@@ -51,7 +44,7 @@ const UserSettings = () => {
               <ListItem
                 disablePadding
                 selected={selectedTab == SETTINGS_TABS.PROFILE}
-                sx={{ borderBottom: '1px dotted #888' }}
+                sx={{ borderBottom: '1px solid #888' }}
                 onClick={() => handleClick(SETTINGS_TABS.PROFILE)}>
                 <ListItemButton>
                   <ListItemIcon>
@@ -63,7 +56,7 @@ const UserSettings = () => {
               <ListItem
                 disablePadding
                 selected={selectedTab == SETTINGS_TABS.GLOBAL_SETTING}
-                sx={{ borderBottom: '1px dotted #888' }}
+                sx={{ borderBottom: '1px solid #888' }}
                 onClick={() => handleClick(SETTINGS_TABS.GLOBAL_SETTING)}>
                 <ListItemButton>
                   <ListItemIcon>
