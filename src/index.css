@@ -53,6 +53,19 @@ code {
   margin-bottom: 20px !important;
 }
 
+.new-form-field-profile {
+  background: rgba(250, 250, 250, 0.7);
+  border: none;
+  backdrop-filter: blur(5px);
+  border-radius: 3px;
+  font-family: 'Calibri';
+  font-style: normal;
+  font-size: 20px;
+  line-height: 23px;
+  width: 170px;
+  margin-bottom: 20px !important;
+}
+
 .welcome-text {
   color: black;
   margin-top: -20px;
@@ -68,6 +81,15 @@ code {
 }
 
 .new-form-field input {
+  padding: 12px 12px !important;
+  font-family: 'Calibri';
+  font-style: normal;
+  font-size: 13px;
+  line-height: 23px;
+  color: black;
+}
+
+.new-form-field-profile input {
   padding: 12px 12px !important;
   font-family: 'Calibri';
   font-style: normal;
@@ -110,6 +132,32 @@ code {
 }
 
 .btn-block button:hover {
+  background: #0c5e94 !important;
+}
+
+.btn-bg button {
+  background: #000000;
+  border-radius: 3px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 8px;
+  gap: 8px;
+  color: #ffffff;
+  font-family: 'Calibri';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: capitalize;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin: auto;
+}
+
+.btn-bg button:hover {
   background: #0c5e94 !important;
 }
 
@@ -192,18 +240,22 @@ th {
   margin-top: 10px;
   margin-right: 20px;
   height: 100%;
-  min-height: 80vh;
+  min-height: 55vh;
   box-shadow: 8px 8px 8px;
 }
 .profile-card {
-  margin-top: 20px;
-  width: 80%;
+  margin-left: 20px;
+  margin-top: 15px;
+  width: 25%;
   height: 100%;
-  min-height: 10vh;
-  margin: auto;
+  min-height: 50vh;
+  box-shadow: 5px 5px 5px 3px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
 }
-.initials-card {
-  top: 0;
-  right: 50%;
-  z-index: 9;
+.global-settings {
+  margin-top: 10px;
+  margin-right: 20px;
+  height: 100%;
+  min-height: 80vh;
+  box-shadow: 8px 8px 8px;
 }

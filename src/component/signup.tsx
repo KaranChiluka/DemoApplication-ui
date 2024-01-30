@@ -145,7 +145,7 @@ const Signup = () => {
                   <div className='err-msg'>{formik.errors.phoneNumber}</div>
                 ) : null}
               </div>
-              <div className='btn-block'>
+              <div className='btn-block' style={{}}>
                 <Button size='small' type='submit'>
                   Signup
                 </Button>
