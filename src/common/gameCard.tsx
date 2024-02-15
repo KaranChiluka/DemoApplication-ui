@@ -17,19 +17,17 @@ const GameCard = ({ gamesDetails }: any) => {
   return (
     <div className='game-cards-container'>
       {gamesDetails.map((item: any, index: any) => (
-        <div key={index} className='game-cards'>
-          <div className='game-card'>
-            <div className='game-image'>
-              <img src={item.img} className='flappy-bird' alt='flappy-bird'></img>
-              <div className='middle'>
-                <div className='text'>{item.name}</div>
-                <Button
-                  className='btn-game-card'
-                  sx={{ top: '100px' }}
-                  onClick={() => handleNavigation(item.url, item.label)}>
-                  Play
-                </Button>
-              </div>
+        <div key={index} className='game-card'>
+          <div className='game-image'>
+            <img src={item.img} className='flappy-bird' alt='flappy-bird'></img>
+            <div className='middle'>
+              <div className='text'>{item.name}</div>
+              <Button
+                className='btn-game-card'
+                sx={{ top: '100px' }}
+                onClick={() => handleNavigation(item.url, item.label)}>
+                Play
+              </Button>
             </div>
           </div>
         </div>

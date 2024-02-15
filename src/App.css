@@ -41,13 +41,13 @@
   gap: 50px;
   height: 100%;
   min-height: 92vh;
+  max-height: 90vh;
   height: 100%;
   width: 100%;
-  /* overflow: scroll non; */
 }
 
 .grid-item-list {
-  border-top: 1px solid #888;
+  border-right: 1px solid black;
   background-color: #282c34;
   min-width: 207px;
   overflow: hidden;
@@ -55,19 +55,35 @@
   /* max-height: 9vh; */
 }
 
+.list-container {
+  /* overflow: hidden; */
+  /* border-right: 1px solid #888; */
+  background-color: #282c34;
+}
+
+.list-item-menu {
+  height: 55px;
+  background-color: #04426a;
+  border-bottom: 1px solid black;
+  color: rgb(33, 29, 29);
+  font-weight: 700;
+  border-top: 1px solid black;
+  justify-content: space-between !important;
+}
+
+.list-item-menu:hover {
+  cursor: pointer;
+}
+
+.list-item-menu:hover .list-icons {
+  transform: scale(1.2);
+}
+
 .list-item {
   height: 55px;
+  justify-content: space-between !important;
   border-bottom: 1px solid #888;
   color: #fff;
-}
-
-.list-item:hover .list-icons {
-  transform: scale(1.5);
-}
-
-.list-icons {
-  justify-content: flex-end;
-  transition: transform 0.2s;
 }
 
 .list-item:hover {
@@ -75,10 +91,26 @@
   background-color: #3e4148;
 }
 
-.list-container {
-  /* overflow: hidden; */
-  border-right: 1px solid #888;
-  background-color: #282c34;
+.list-item:hover .list-icons {
+  transform: scale(1.2);
+}
+
+.list-icons {
+  justify-content: flex-end;
+  transition: transform 0.2s;
+}
+
+.grid-item-gamecard {
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.game-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2.3rem;
+  margin-top: 20px;
 }
 
 .game-card {
@@ -87,7 +119,7 @@
   background: #282c34;
   margin: 10px 10px;
   border-radius: 5px;
-  border: 3px solid #282c34;
+  border: 3px solid black;
   transition: transform 0.2s;
 }
 
@@ -97,14 +129,6 @@
   border-color: #005d9c;
   /* border-style: double; */
   cursor: pointer;
-}
-
-.game-cards-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 2.3rem;
-  margin-top: 20px;
 }
 
 .btn-game-card {

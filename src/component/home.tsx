@@ -8,6 +8,7 @@ import { useState } from 'react';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import ConstructionIcon from '@mui/icons-material/Construction';
 import SchoolIcon from '@mui/icons-material/School';
+import MenuIcon from '@mui/icons-material/Menu';
 const Home = () => {
   // const allItems = [
   //   {
@@ -21,20 +22,142 @@ const Home = () => {
       {
         name: 'Flappy Bird',
         img: img1,
+        url: '/flappyBird',
+        label: 'FlappyBird',
       },
       {
         name: 'Tic-Tac-Toe',
         img: img2,
+        url: '/flappyBird',
+        label: 'FlappyBird',
       },
     ],
     tools: [
       {
         name: 'Calculator',
         img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
       },
       {
         name: 'Calculator',
         img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
+      },
+      {
+        name: 'Calculator',
+        img: img4,
+        url: '/flappyBird',
+        label: 'FlappyBird',
       },
     ],
     courses: [
@@ -53,7 +176,9 @@ const Home = () => {
     ],
   };
 
-  const [items, setItems] = useState(details.games);
+  const [items, setItems] = useState(details.courses);
+
+  const handleMenuBar = () => {};
 
   return (
     <div>
@@ -65,30 +190,25 @@ const Home = () => {
               Games
             </ListItem>
             ))} */}
-            <ListItem
-              className='list-item'
-              sx={{ justifyContent: 'space-between' }}
-              onClick={() => setItems(details.games)}>
-              <p>Games</p>
-              <SportsEsportsIcon className='list-icons' />
+            <ListItem className='list-item-menu' onClick={() => handleMenuBar()}>
+              <p className='list-text'>Menu</p>
+              <MenuIcon className='list-icons' />
             </ListItem>
-            <ListItem
-              className='list-item'
-              sx={{ justifyContent: 'space-between' }}
-              onClick={() => setItems(details.tools)}>
-              <p>Tools</p>
+            <ListItem className='list-item' onClick={() => setItems(details.courses)}>
+              <p className='list-text'>Courses</p>
+              <SchoolIcon className='list-icons' />
+            </ListItem>
+            <ListItem className='list-item' onClick={() => setItems(details.tools)}>
+              <p className='list-text'>Tools</p>
               <ConstructionIcon className='list-icons' />
             </ListItem>
-            <ListItem
-              className='list-item'
-              sx={{ justifyContent: 'space-between' }}
-              onClick={() => setItems(details.courses)}>
-              <p>Courses</p>
-              <SchoolIcon className='list-icons' />
+            <ListItem className='list-item' onClick={() => setItems(details.games)}>
+              <p className='list-text'>Games</p>
+              <SportsEsportsIcon className='list-icons' />
             </ListItem>
           </List>
         </Grid>
-        <Grid item>
+        <Grid item className='grid-item-gamecard'>
           <GameCard gamesDetails={items} />
         </Grid>
       </Grid>
