@@ -1,16 +1,17 @@
-import { Person } from '@mui/icons-material';
-import { Button, InputLabel, Paper, TextField } from '@mui/material';
-import React, { useState } from 'react';
-import globalObject from '../common/global-variable';
-import EditIcon from '@mui/icons-material/Edit';
-import SaveIcon from '@mui/icons-material/Save';
+// import { Person } from '@mui/icons-material';
+// import { Button, InputLabel, Paper, TextField } from '@mui/material';
+// import React, { useState } from 'react';
+// import globalObject from '../common/global-variable';
+// import EditIcon from '@mui/icons-material/Edit';
+// import SaveIcon from '@mui/icons-material/Save';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { updateUser } from '../service/loginService';
 import { UserDetails } from '../models/user-details-model';
+import { Paper } from '@mui/material';
 
 const Profile = () => {
-  const [editProfile, setEditProfile] = useState(false);
+  // const [editProfile, setEditProfile] = useState(false);
 
   const userDetailsSchema = Yup.object().shape({
     email: Yup.string().required('Email is required'),
@@ -39,7 +40,10 @@ const Profile = () => {
   return (
     <div>
       <Paper variant='outlined' className='profile'>
-        <div className='profile-card'>
+        <div>
+          <h3>Profile</h3>
+        </div>
+        {/* <div className='profile-card'>
           <form onSubmit={(values) => formik.handleSubmit(values)}>
             <Person sx={{ marginTop: '20px', minHeight: '100px', minWidth: '100px' }}></Person>
             {!editProfile && (
@@ -53,7 +57,12 @@ const Profile = () => {
             )}
             {editProfile && (
               <>
-                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: '20px',
+                  }}>
                   <InputLabel>UserName: </InputLabel>
                   <TextField
                     size='small'
@@ -108,7 +117,7 @@ const Profile = () => {
               )}
             </div>
           </form>
-        </div>
+        </div> */}
       </Paper>
     </div>
   );
