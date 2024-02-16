@@ -8,7 +8,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { updateUser } from '../service/loginService';
 import { UserDetails } from '../models/user-details-model';
-import { Paper } from '@mui/material';
+// import { Paper } from '@mui/material';
 
 const Profile = () => {
   // const [editProfile, setEditProfile] = useState(false);
@@ -39,11 +39,11 @@ const Profile = () => {
 
   return (
     <div>
-      <Paper variant='outlined' className='profile'>
-        <div>
-          <h3>Profile</h3>
-        </div>
-        {/* <div className='profile-card'>
+      {/* <Paper variant='outlined' className='profile'> */}
+      {/* <div> */}
+      <h3>Profile</h3>
+      {/* </div> */}
+      {/* <div className='profile-card'>
           <form onSubmit={(values) => formik.handleSubmit(values)}>
             <Person sx={{ marginTop: '20px', minHeight: '100px', minWidth: '100px' }}></Person>
             {!editProfile && (
@@ -118,7 +118,7 @@ const Profile = () => {
             </div>
           </form>
         </div> */}
-      </Paper>
+      {/* </Paper> */}
     </div>
   );
 };

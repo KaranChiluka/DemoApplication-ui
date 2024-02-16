@@ -9,6 +9,7 @@ import Home from './component/home';
 import Signup from './component/signup';
 import UserSettings from './user-settings/userSettings';
 import FlappyBird from './games/flappy-bird/flappy-bird';
+import VideoPlayer from './component/videoPlayer';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: '/flappyBird',
         element: <FlappyBird />,
+      },
+      {
+        path: '/videoPlayer',
+        element: <VideoPlayer />,
       },
     ],
   },

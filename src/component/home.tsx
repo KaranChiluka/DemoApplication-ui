@@ -164,24 +164,25 @@ const Home = () => {
       {
         name: 'Java',
         img: img3,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/videoPlayer',
+        label: 'VideoPlayer',
       },
       {
         name: 'Java',
         img: img3,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/videoPlayer',
+        label: 'VideoPlayer',
       },
     ],
   };
 
   const [items, setItems] = useState(details.courses);
+  const [selectedItem, setSelectedItem] = useState('Courses');
 
   const handleMenuBar = () => {};
 
   return (
-    <div>
+    <div className='home'>
       <Grid container sx={{}} wrap='nowrap' className='grid-container'>
         <Grid item xs={1.3} className='grid-item-list'>
           <List className='list-container' disablePadding={true}>
@@ -190,19 +191,39 @@ const Home = () => {
               Games
             </ListItem>
             ))} */}
-            <ListItem className='list-item-menu' onClick={() => handleMenuBar()}>
+            <ListItem
+              className='list-item-menu'
+              onClick={() => {
+                handleMenuBar();
+                setSelectedItem('Menu');
+              }}>
               <p className='list-text'>Menu</p>
               <MenuIcon className='list-icons' />
             </ListItem>
-            <ListItem className='list-item' onClick={() => setItems(details.courses)}>
+            <ListItem
+              className={selectedItem == 'Courses' ? 'list-item-selected' : 'list-item'}
+              onClick={() => {
+                setItems(details.courses);
+                setSelectedItem('Courses');
+              }}>
               <p className='list-text'>Courses</p>
               <SchoolIcon className='list-icons' />
             </ListItem>
-            <ListItem className='list-item' onClick={() => setItems(details.tools)}>
+            <ListItem
+              className={selectedItem == 'Tools' ? 'list-item-selected' : 'list-item'}
+              onClick={() => {
+                setItems(details.tools);
+                setSelectedItem('Tools');
+              }}>
               <p className='list-text'>Tools</p>
               <ConstructionIcon className='list-icons' />
             </ListItem>
-            <ListItem className='list-item' onClick={() => setItems(details.games)}>
+            <ListItem
+              className={selectedItem == 'Games' ? 'list-item-selected' : 'list-item'}
+              onClick={() => {
+                setItems(details.games);
+                setSelectedItem('Games');
+              }}>
               <p className='list-text'>Games</p>
               <SportsEsportsIcon className='list-icons' />
             </ListItem>

@@ -4,8 +4,11 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(assets/bg-image.png);
+  background-color: #333;
+  /* background-image: url(assets/dark-bg2.jpg); */
+  min-width: fit-content;
   background-size: cover;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -14,13 +17,14 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #333;
+  background-color: #282c34;
   border-radius: 8px;
-  border: 2px solid #555;
+  border: 1px solid #000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: #3e4148;
+  border: 2px solid #000;
 }
 
 code {

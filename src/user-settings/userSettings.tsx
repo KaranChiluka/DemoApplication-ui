@@ -26,20 +26,13 @@ const UserSettings = () => {
 
   useEffect(() => setSelectedTab(SETTINGS_TABS.PROFILE), []);
   return (
-    <Box sx={{ backgroundBlendMode: 'darken' }}>
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
+    <Box className='home'>
+      <Grid container className='grid-container'>
+        <Grid item className='grid-item-list'>
           <nav aria-label='user settings'>
-            <List sx={{ borderRight: '1px solid #888', marginTop: '8px' }} disablePadding={true}>
-              <ListItem
-                sx={{
-                  borderBottom: '1px solid #888',
-                  textAlign: 'center',
-                  backgroundColor: 'black',
-                  opacity: '4px',
-                  color: 'white',
-                }}>
-                <ListItemText>Settings</ListItemText>
+            <List className='list-container' disablePadding={true}>
+              <ListItem className='list-item-menu'>
+                <ListItemText className='list-text'>Settings</ListItemText>
               </ListItem>
               <ListItem
                 disablePadding
@@ -68,7 +61,7 @@ const UserSettings = () => {
             </List>
           </nav>
         </Grid>
-        <Grid item xs={10}>
+        <Grid item className='grid-item-gamecard'>
           {selectedTab == SETTINGS_TABS.GLOBAL_SETTING && <GlobalSettings />}
           {selectedTab == SETTINGS_TABS.PROFILE && <Profile />}
         </Grid>
