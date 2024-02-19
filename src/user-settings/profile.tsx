@@ -41,7 +41,7 @@ const Profile = () => {
     <div>
       {/* <Paper variant='outlined' className='profile'> */}
       {/* <div> */}
-      <h3>Profile</h3>
+      <h3 style={{ color: 'white' }}>Profile</h3>
       {/* </div> */}
       {/* <div className='profile-card'>
           <form onSubmit={(values) => formik.handleSubmit(values)}>

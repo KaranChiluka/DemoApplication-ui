@@ -36,141 +36,141 @@ const Home = () => {
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
       {
         name: 'Calculator',
         img: img4,
-        url: '/flappyBird',
-        label: 'FlappyBird',
+        url: '/calculator',
+        label: 'Calculator',
       },
     ],
     courses: [
       {
         name: 'Java',
         img: img3,
-        url: '/videoPlayer',
+        url: '/videoplayer/java',
         label: 'VideoPlayer',
       },
       {
-        name: 'Java',
+        name: 'C++',
         img: img3,
-        url: '/videoPlayer',
+        url: '/videoplayer/c++',
         label: 'VideoPlayer',
       },
     ],
@@ -183,7 +183,7 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <Grid container sx={{}} wrap='nowrap' className='grid-container'>
+      <Grid container wrap='nowrap' className='grid-container'>
         <Grid item xs={1.3} className='grid-item-list'>
           <List className='list-container' disablePadding={true}>
             {/* {allItems.map((value:any,index:any)=>(
@@ -230,6 +230,9 @@ const Home = () => {
           </List>
         </Grid>
         <Grid item className='grid-item-gamecard'>
+          {/* <div style={{ color: 'white', alignContent: 'center', position: 'sticky' }}>
+            <h3>{selectedItem}</h3>
+          </div> */}
           <GameCard gamesDetails={items} />
         </Grid>
       </Grid>

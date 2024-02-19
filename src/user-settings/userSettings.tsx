@@ -3,9 +3,8 @@ import {
   Grid,
   List,
   ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
+  // ListItemIcon,
+  // ListItemText,
 } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import { useEffect, useState } from 'react';
@@ -32,31 +31,29 @@ const UserSettings = () => {
           <nav aria-label='user settings'>
             <List className='list-container' disablePadding={true}>
               <ListItem className='list-item-menu'>
-                <ListItemText className='list-text'>Settings</ListItemText>
+                <p className='list-text'>Settings</p>
+                <SettingsIcon className='list-icons' />
               </ListItem>
               <ListItem
-                disablePadding
-                selected={selectedTab == SETTINGS_TABS.PROFILE}
-                sx={{ borderBottom: '1px solid #888' }}
+                // disablePadding
+                // selected={selectedTab == SETTINGS_TABS.PROFILE}
+                className={
+                  selectedTab == SETTINGS_TABS.PROFILE ? 'list-item-selected' : 'list-item'
+                }
                 onClick={() => handleClick(SETTINGS_TABS.PROFILE)}>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <PersonIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={SETTINGS_TABS.PROFILE} />
-                </ListItemButton>
+                <p className='list-text'>{SETTINGS_TABS.PROFILE}</p>
+                <PersonIcon className='list-icons' />
               </ListItem>
               <ListItem
-                disablePadding
-                selected={selectedTab == SETTINGS_TABS.GLOBAL_SETTING}
-                sx={{ borderBottom: '1px solid #888' }}
+                // disablePadding
+                // selected={selectedTab == SETTINGS_TABS.GLOBAL_SETTING}
+                // sx={{ borderBottom: '1px solid #888' }}
+                className={
+                  selectedTab == SETTINGS_TABS.GLOBAL_SETTING ? 'list-item-selected' : 'list-item'
+                }
                 onClick={() => handleClick(SETTINGS_TABS.GLOBAL_SETTING)}>
-                <ListItemButton>
-                  <ListItemIcon>
-                    <SettingsIcon />
-                  </ListItemIcon>
-                  <ListItemText primary={SETTINGS_TABS.GLOBAL_SETTING} />
-                </ListItemButton>
+                <p className='list-text'>{SETTINGS_TABS.GLOBAL_SETTING}</p>
+                <SettingsIcon className='list-icons' />
               </ListItem>
             </List>
           </nav>

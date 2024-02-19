@@ -8,8 +8,11 @@ import Login from './component/login';
 import Home from './component/home';
 import Signup from './component/signup';
 import UserSettings from './user-settings/userSettings';
-import FlappyBird from './games/flappy-bird/flappy-bird';
-import VideoPlayer from './component/videoPlayer';
+import FlappyBird from './component/games/flappy-bird/flappy-bird';
+import VideoPlayer from './component/videoPlayer/videoPlayer';
+import Calculator from './component/tools/calculator';
+
+// let course = '';
 
 const router = createBrowserRouter([
   {
@@ -38,8 +41,12 @@ const router = createBrowserRouter([
         element: <FlappyBird />,
       },
       {
-        path: '/videoPlayer',
+        path: '/videoplayer/:course',
         element: <VideoPlayer />,
+      },
+      {
+        path: '/calculator',
+        element: <Calculator />,
       },
     ],
   },

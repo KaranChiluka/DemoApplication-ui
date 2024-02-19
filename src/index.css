@@ -32,7 +32,7 @@ code {
 }
 
 .new-login {
-  /* background-image: url(assets/bg-image.png); */
+  background-image: url(assets/bg-image.png);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -46,14 +46,14 @@ code {
 .block-border {
   border-radius: 10px;
   margin: auto;
-  padding: 90px 50px !important ;
-  background: rgba(50, 50, 50, 0.21);
+  padding: 30px 30px !important ;
+  background: rgba(0, 34, 65, 0.31);
   box-shadow: 8px 8px 8px;
 }
 
 .form-block {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
   min-height: 100vh;
   flex-direction: column;
@@ -151,7 +151,7 @@ code {
 }
 
 .btn-block button:hover {
-  background: #0c5e94 !important;
+  background: #093e62 !important;
 }
 
 .btn-bg button {
