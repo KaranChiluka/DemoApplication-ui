@@ -12,8 +12,6 @@ import FlappyBird from './component/games/flappy-bird/flappy-bird';
 import VideoPlayer from './component/videoPlayer/videoPlayer';
 import Calculator from './component/tools/calculator';
 
-// let course = '';
-
 const router = createBrowserRouter([
   {
     path: '/login',
