@@ -1,15 +1,28 @@
-import { Grid, List, ListItem } from '@mui/material';
+// import { Grid, List, ListItem } from '@mui/material';
+// import img1 from '../assets/flappybird.png';
+// import img2 from '../assets/bg-image.png';
+// import img3 from '../assets/java-image.png';
+// import img4 from '../assets/calculator-image.jpg';
+// import GameCard from '../common/gameCard';
+// import { useState } from 'react';
+// import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+// import ConstructionIcon from '@mui/icons-material/Construction';
+// import SchoolIcon from '@mui/icons-material/School';
+
+import { Grid } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import SchoolIcon from '@mui/icons-material/School';
+import { useState } from 'react';
+import GameCard from '../common/gameCard';
 import img1 from '../assets/flappybird.png';
 import img2 from '../assets/bg-image.png';
 import img3 from '../assets/java-image.png';
 import img4 from '../assets/calculator-image.jpg';
-import GameCard from '../common/gameCard';
-import { useState } from 'react';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import ConstructionIcon from '@mui/icons-material/Construction';
-import SchoolIcon from '@mui/icons-material/School';
-import MenuIcon from '@mui/icons-material/Menu';
 const Home = () => {
+  const [selectedTab, setSelectedTab] = useState('Course');
+  const handleClick = (tab: string) => {
+    setSelectedTab(tab);
+  };
   // const allItems = [
   //   {
   //     name:'Games',
@@ -51,191 +64,87 @@ const Home = () => {
         url: '/calculator',
         label: 'Calculator',
       },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
-      {
-        name: 'Calculator',
-        img: img4,
-        url: '/calculator',
-        label: 'Calculator',
-      },
     ],
     courses: [
       {
         name: 'Java',
         img: img3,
-        url: '/videoplayer/java',
+        url: `/videoplayer/${btoa('java')}`,
         label: 'VideoPlayer',
       },
       {
         name: 'C++',
         img: img3,
-        url: '/videoplayer/c++',
+        url: `/videoplayer/${btoa('c++')}`,
         label: 'VideoPlayer',
       },
     ],
   };
-
-  const [items, setItems] = useState(details.courses);
-  const [selectedItem, setSelectedItem] = useState('Courses');
-
-  const handleMenuBar = () => {};
+  const [selectedItem, setSelectedItem] = useState(details.courses);
 
   return (
     <div className='home'>
-      <Grid container wrap='nowrap' className='grid-container'>
-        <Grid item xs={1.3} className='grid-item-list'>
-          <List className='list-container' disablePadding={true}>
-            {/* {allItems.map((value:any,index:any)=>(
-              <ListItem key={index} className='list-item' onClick={() => setItems(details.games)}>
-              Games
-            </ListItem>
-            ))} */}
-            <ListItem
-              className='list-item-menu'
+      <Grid container sx={{ flexDirection: 'column' }}>
+        <Grid item>
+          <div className='user-settings'>
+            <div className='list-item-menu-settings'>
+              <HomeIcon className='list-icons-settings' />
+            </div>
+            <div className='pipe'>|</div>
+            <div
+              className={
+                selectedTab == 'Course'
+                  ? 'list-item-menu-settings-selected'
+                  : 'list-item-menu-settings'
+              }
               onClick={() => {
-                handleMenuBar();
-                setSelectedItem('Menu');
+                handleClick('Course');
+                setSelectedItem(details.courses);
               }}>
-              <p className='list-text'>Menu</p>
-              <MenuIcon className='list-icons' />
-            </ListItem>
-            <ListItem
-              className={selectedItem == 'Courses' ? 'list-item-selected' : 'list-item'}
+              <p className='list-text'>Course</p>
+              <SchoolIcon className='list-icons-settings' />
+            </div>
+            <div className='pipe'>|</div>
+            <div
+              className={
+                selectedTab == 'Tools'
+                  ? 'list-item-menu-settings-selected'
+                  : 'list-item-menu-settings'
+              }
               onClick={() => {
-                setItems(details.courses);
-                setSelectedItem('Courses');
-              }}>
-              <p className='list-text'>Courses</p>
-              <SchoolIcon className='list-icons' />
-            </ListItem>
-            <ListItem
-              className={selectedItem == 'Tools' ? 'list-item-selected' : 'list-item'}
-              onClick={() => {
-                setItems(details.tools);
-                setSelectedItem('Tools');
+                handleClick('Tools');
+                setSelectedItem(details.tools);
               }}>
               <p className='list-text'>Tools</p>
-              <ConstructionIcon className='list-icons' />
-            </ListItem>
-            <ListItem
-              className={selectedItem == 'Games' ? 'list-item-selected' : 'list-item'}
+              <SchoolIcon className='list-icons-settings' />
+            </div>
+            <div className='pipe'>|</div>
+            <div
+              className={
+                selectedTab == 'Games'
+                  ? 'list-item-menu-settings-selected'
+                  : 'list-item-menu-settings'
+              }
               onClick={() => {
-                setItems(details.games);
-                setSelectedItem('Games');
+                handleClick('Games');
+                setSelectedItem(details.games);
               }}>
               <p className='list-text'>Games</p>
-              <SportsEsportsIcon className='list-icons' />
-            </ListItem>
-          </List>
+              <SchoolIcon className='list-icons-settings' />
+            </div>
+          </div>
         </Grid>
-        <Grid item className='grid-item-gamecard'>
-          {/* <div style={{ color: 'white', alignContent: 'center', position: 'sticky' }}>
-            <h3>{selectedItem}</h3>
-          </div> */}
-          <GameCard gamesDetails={items} />
+        <Grid item>
+          <GameCard gamesDetails={selectedItem} />
         </Grid>
       </Grid>
+      {/* <div style={{ border: '1px solid black', width: '50%' }}>
+        <video width='640px' height='350px'>
+          <source src='./public/video/Introduction-1.mp4' type='video/mp4' />
+        </video>
+      </div>
+      <h4>Google Drive Video Embed</h4>
+      <GoogleDriveVideo /> */}
     </div>
   );
 };

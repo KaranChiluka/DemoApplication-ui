@@ -9,8 +9,8 @@ import Home from './component/home';
 import Signup from './component/signup';
 import UserSettings from './user-settings/userSettings';
 import FlappyBird from './component/games/flappy-bird/flappy-bird';
-import VideoPlayer from './component/videoPlayer/videoPlayer';
 import Calculator from './component/tools/calculator';
+import GoogleDriveVideo from './component/videoPlayer/googleDriveVideo';
 
 const router = createBrowserRouter([
   {
@@ -35,12 +35,12 @@ const router = createBrowserRouter([
         element: <UserSettings />,
       },
       {
-        path: '/flappyBird',
-        element: <FlappyBird />,
+        path: '/videoplayer/:course',
+        element: <GoogleDriveVideo />,
       },
       {
-        path: '/videoplayer/:course',
-        element: <VideoPlayer />,
+        path: '/flappyBird',
+        element: <FlappyBird />,
       },
       {
         path: '/calculator',

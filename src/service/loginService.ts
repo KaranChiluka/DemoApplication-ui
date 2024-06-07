@@ -18,5 +18,5 @@ export async function gethealth() {
 }
 
 export async function updateUser(user: UserDetails) {
-  return axiosClient.patch('/user/updateDetails', user);
+  return axiosClient.post('/user/updateDetails', user);
 }

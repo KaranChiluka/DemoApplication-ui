@@ -23,12 +23,14 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [navigate] = useNavigate();
+  const [apiError, setApiError] = useState(false);
 
   const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
 
   const login = (values: any) => {
+    setApiError(false);
     getUsers(values)
       .then((resp) => {
         localStorage.setItem('token', resp.data.token);
@@ -40,6 +42,7 @@ const Login = () => {
         ]);
       })
       .catch((err) => {
+        setApiError(true);
         console.log(err);
       });
   };
@@ -77,7 +80,7 @@ const Login = () => {
             <div className='welcome-text'>
               <h1>Login</h1>
             </div>
-            <form onSubmit={formik.handleSubmit}>
+            <form onSubmit={formik.handleSubmit} onChange={() => setApiError(false)}>
               <div>
                 <InputLabel className='input-label' htmlFor='username'>
                   Username:{' '}
@@ -127,6 +130,7 @@ const Login = () => {
               {formik.touched.password && formik.errors.password ? (
                 <div className='err-msg'>{formik.errors.password}</div>
               ) : null}
+              {apiError && <div className='err-msg'>Username or password is invalid</div>}
               <div className='btn-block'>
                 <Button size='small' type='submit'>
                   Login
