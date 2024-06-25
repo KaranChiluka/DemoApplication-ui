@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { redirectToLogin } from './commonUtils';
+// import { redirectToLogin } from './commonUtils';
 
 const axiosClient = axios.create({
   baseURL: 'http://localhost:8081/api',
@@ -17,7 +17,7 @@ axiosClient.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.response?.status === 401 && window.location.pathname !== '/login') {
-      redirectToLogin();
+      // redirectToLogin();
       return;
     }
     return Promise.reject(error);

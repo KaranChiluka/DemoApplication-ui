@@ -30,37 +30,35 @@ export default function App() {
       });
   }, []);
   return (
-    <div className='App'>
-      <React.Fragment>
-        {token && (
-          <div>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              {!loading && globalObject.userObject.id && (
-                <>
-                  <NavBar />
-                  <div>
-                    <Box>
-                      <Outlet />
-                    </Box>
-                  </div>
-                </>
-              )}
-              {loading && (
-                <Backdrop
-                  sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                  open={true}>
-                  <CircularProgress color='inherit' />
-                </Backdrop>
-              )}
-            </LocalizationProvider>
-          </div>
-        )}
-        {!token && (
-          <div>
-            <Navigate to={getLoginUrl()} />
-          </div>
-        )}
-      </React.Fragment>
-    </div>
+    <React.Fragment>
+      {token && (
+        <div id='detail'>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            {!loading && globalObject.userObject.id && (
+              <>
+                <NavBar />
+                <div>
+                  <Box>
+                    <Outlet />
+                  </Box>
+                </div>
+              </>
+            )}
+            {loading && (
+              <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={true}>
+                <CircularProgress color='inherit' />
+              </Backdrop>
+            )}
+          </LocalizationProvider>
+        </div>
+      )}
+      {!token && (
+        <div>
+          <Navigate to={getLoginUrl()} />
+        </div>
+      )}
+    </React.Fragment>
   );
 }

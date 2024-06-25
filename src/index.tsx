@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         element: <UserSettings />,
       },
       {
-        path: '/videoplayer/:course',
+        path: '/videoplayer/:courseId',
         element: <GoogleDriveVideo />,
       },
       {

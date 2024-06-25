@@ -5,31 +5,21 @@
 // import img4 from '../assets/calculator-image.jpg';
 // import GameCard from '../common/gameCard';
 // import { useState } from 'react';
-// import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-// import ConstructionIcon from '@mui/icons-material/Construction';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import ConstructionIcon from '@mui/icons-material/Construction';
 // import SchoolIcon from '@mui/icons-material/School';
 
 import { Grid } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import GameCard from '../common/gameCard';
 import img1 from '../assets/flappybird.png';
 import img2 from '../assets/bg-image.png';
 import img3 from '../assets/java-image.png';
 import img4 from '../assets/calculator-image.jpg';
+import { getVideosfiles } from '../service/googleDriveService';
 const Home = () => {
-  const [selectedTab, setSelectedTab] = useState('Course');
-  const handleClick = (tab: string) => {
-    setSelectedTab(tab);
-  };
-  // const allItems = [
-  //   {
-  //     name:'Games',
-  //     detailsType: details.games;
-  //   }
-  // ]
-
   const details = {
     games: [
       {
@@ -80,7 +70,26 @@ const Home = () => {
       },
     ],
   };
-  const [selectedItem, setSelectedItem] = useState(details.courses);
+
+  const [selectedTab, setSelectedTab] = useState('Course');
+  const [selectedItem, setSelectedItem] = useState([] as any[]);
+  // const [courses, setCourses] = useState([] as any[]);
+
+  const handleClick = (tab: string) => {
+    setSelectedTab(tab);
+  };
+
+  useEffect(() => {
+    getVideosfiles()
+      .then((resp) => {
+        setSelectedItem(resp.data);
+        // setCourses(resp.data);
+        console.log(resp.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div className='home'>
@@ -116,7 +125,7 @@ const Home = () => {
                 setSelectedItem(details.tools);
               }}>
               <p className='list-text'>Tools</p>
-              <SchoolIcon className='list-icons-settings' />
+              <ConstructionIcon className='list-icons-settings' />
             </div>
             <div className='pipe'>|</div>
             <div
@@ -130,21 +139,19 @@ const Home = () => {
                 setSelectedItem(details.games);
               }}>
               <p className='list-text'>Games</p>
-              <SchoolIcon className='list-icons-settings' />
+              <SportsEsportsIcon className='list-icons-settings' />
             </div>
           </div>
         </Grid>
+        {/* <iframe
+          src='https://drive.google.com/file/d/1PWdykiEKiocATLEZoY9RyVu9EUtr6J2i/preview'
+          width='640'
+          height='480'
+          allow='autoplay'></iframe> */}
         <Grid item>
           <GameCard gamesDetails={selectedItem} />
         </Grid>
       </Grid>
-      {/* <div style={{ border: '1px solid black', width: '50%' }}>
-        <video width='640px' height='350px'>
-          <source src='./public/video/Introduction-1.mp4' type='video/mp4' />
-        </video>
-      </div>
-      <h4>Google Drive Video Embed</h4>
-      <GoogleDriveVideo /> */}
     </div>
   );
 };

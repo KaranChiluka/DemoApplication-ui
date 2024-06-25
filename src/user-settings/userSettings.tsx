@@ -25,7 +25,7 @@ const UserSettings = () => {
 
   return (
     <Box>
-      <Grid container sx={{ flexDirection: 'column' }}>
+      <Grid container spacing={2} sx={{ flexDirection: 'column', height: '100%' }}>
         <Grid item>
           <div className='user-settings'>
             <div className='list-item-menu-settings'>
@@ -60,7 +60,7 @@ const UserSettings = () => {
             </div>
           </div>
         </Grid>
-        <Grid item className='grid-item-gamecard'>
+        <Grid item xs={10} className='grid-item-gamecard'>
           {selectedTab == SETTINGS_TABS.GLOBAL_SETTING && <GlobalSettings />}
           {selectedTab == SETTINGS_TABS.PROFILE && <Profile />}
         </Grid>

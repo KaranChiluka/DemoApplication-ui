@@ -65,13 +65,20 @@ const Signup = () => {
               <h1>Signup</h1>
             </div>
             <form onSubmit={formik.handleSubmit}>
-              <div>
+              <div style={{ width: '100%' }}>
                 <InputLabel className='input-label' htmlFor='email'>
                   Email:
                 </InputLabel>
                 <TextField
+                  sx={{
+                    width: '100%',
+                    backgroundColor: 'rgba(250, 250, 250, 0.7)',
+                    borderRadius: '5px',
+                    marginBottom: '20px',
+                  }}
+                  size='small'
                   id='email'
-                  className='new-form-field'
+                  // className='new-form-field'
                   value={formik.values.email}
                   error={formik.touched.email && Boolean(formik.errors.email)}
                   onChange={formik.handleChange}
@@ -81,38 +88,52 @@ const Signup = () => {
               {formik.touched.email && formik.errors.email ? (
                 <div className='err-msg'>{formik.errors.email}</div>
               ) : null}
-              <div>
-                <InputLabel className='input-label' htmlFor='firstName'>
-                  FirstName:
-                </InputLabel>
-                <TextField
-                  id='firstName'
-                  className='new-form-field'
-                  value={formik.values.firstName}
-                  error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ width: '45%' }}>
+                  <InputLabel className='input-label' htmlFor='firstName'>
+                    FirstName:
+                  </InputLabel>
+                  <TextField
+                    id='firstName'
+                    sx={{
+                      width: '100%',
+                      backgroundColor: 'rgba(250, 250, 250, 0.7)',
+                      borderRadius: '5px',
+                      marginBottom: '20px',
+                    }}
+                    size='small'
+                    value={formik.values.firstName}
+                    error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.firstName && formik.errors.firstName ? (
+                    <div className='err-msg'>{formik.errors.firstName}</div>
+                  ) : null}
+                </div>
+                <div style={{ width: '45%' }}>
+                  <InputLabel className='input-label' htmlFor='lastName'>
+                    LastName:
+                  </InputLabel>
+                  <TextField
+                    id='lastName'
+                    sx={{
+                      width: '100%',
+                      backgroundColor: 'rgba(250, 250, 250, 0.7)',
+                      borderRadius: '5px',
+                      marginBottom: '20px',
+                    }}
+                    size='small'
+                    value={formik.values.lastName}
+                    error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
+                  {formik.touched.lastName && formik.errors.lastName ? (
+                    <div className='err-msg'>{formik.errors.lastName}</div>
+                  ) : null}
+                </div>
               </div>
-              {formik.touched.firstName && formik.errors.firstName ? (
-                <div className='err-msg'>{formik.errors.firstName}</div>
-              ) : null}
-              <div>
-                <InputLabel className='input-label' htmlFor='lastName'>
-                  LastName:
-                </InputLabel>
-                <TextField
-                  id='lastName'
-                  className='new-form-field'
-                  value={formik.values.lastName}
-                  error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                />
-              </div>
-              {formik.touched.lastName && formik.errors.lastName ? (
-                <div className='err-msg'>{formik.errors.lastName}</div>
-              ) : null}
               <div>
                 <InputLabel className='input-label' htmlFor='password'>
                   Password:
