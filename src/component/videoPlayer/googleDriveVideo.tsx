@@ -1,8 +1,8 @@
-import { Backdrop, CircularProgress, Grid, IconButton, List, ListItem } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
+import { Backdrop, CircularProgress, Grid, List, ListItem } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getVideos } from '../../service/googleDriveService';
-import { Pause, PlayArrow, VolumeOff, VolumeUp } from '@mui/icons-material';
+// import { Pause, PlayArrow, VolumeOff, VolumeUp } from '@mui/icons-material';
 // import ReactPlayer from 'react-player';
 
 const GoogleDriveVideo: React.FC = () => {
@@ -12,9 +12,9 @@ const GoogleDriveVideo: React.FC = () => {
   const [videos, setVideos] = useState({ courseName: '', list: [] as any[] });
   const [loading, setLoading] = useState(false);
   const [selectedvideo, setSelectedVideo] = useState({ name: '', id: '' });
-  const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  // const [playing, setPlaying] = useState(false);
+  // const [muted, setMuted] = useState(false);
+  // const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     setLoading(true);
@@ -34,7 +34,12 @@ const GoogleDriveVideo: React.FC = () => {
   }, [courseId]);
 
   const extractNumber = (title: any) => {
-    const match = title.match(/^(\d+)-/);
+    let match;
+    if (title.includes('-')) {
+      match = title.match(/^(\d+)-/);
+    } else {
+      match = title.match(/^(\d+)./);
+    }
     return match ? parseInt(match[1], 10) : 0;
   };
 
@@ -61,34 +66,36 @@ const GoogleDriveVideo: React.FC = () => {
     console.log('selectedvideos: ', selectedvideo);
   }, [selectedvideo]);
 
-  const handlePlayPause = () => {
-    const iframe = iframeRef.current;
-    if (iframe) {
-      const player = iframe.contentWindow;
-      if (player) {
-        player.postMessage(JSON.stringify({ event: playing ? 'pause' : 'play' }), '*');
-        setPlaying(!playing);
-      }
-    }
-  };
+  // const handlePlayPause = () => {
+  //   const iframe = iframeRef.current;
+  //   if (iframe) {
+  //     const player = iframe.contentWindow;
+  //     if (player) {
+  //       player.postMessage(JSON.stringify({ event: playing ? 'pause' : 'play' }), '*');
+  //       setPlaying(!playing);
+  //     }
+  //   }
+  // };
 
-  const handleMuteUnmute = () => {
-    const iframe = iframeRef.current;
-    if (iframe) {
-      const player = iframe.contentWindow;
-      if (player) {
-        player.postMessage(JSON.stringify({ event: muted ? 'unmute' : 'mute' }), '*');
-        setMuted(!muted);
-      }
-    }
-  };
+  // const handleMuteUnmute = () => {
+  //   const iframe = iframeRef.current;
+  //   if (iframe) {
+  //     const player = iframe.contentWindow;
+  //     if (player) {
+  //       player.postMessage(JSON.stringify({ event: muted ? 'unmute' : 'mute' }), '*');
+  //       setMuted(!muted);
+  //     }
+  //   }
+  // };
 
   return (
     <div className='home'>
       {!loading ? (
         <Grid container className='grid-container'>
           <Grid item style={{ height: '100vh', width: '20%' }}>
-            <List className='list-container' style={{ width: '100%' }}>
+            <List
+              className='list-container'
+              style={{ width: '100%', height: '90%', overflow: 'auto' }}>
               <h3 style={{ color: 'white', textAlign: 'center' }}>{videos.courseName}</h3>
               {sort(videos.list).map((val: any, index: any) => (
                 <List key={index} disablePadding>
@@ -153,7 +160,7 @@ const GoogleDriveVideo: React.FC = () => {
                   src={`https://drive.google.com/file/d/${selectedvideo.id}/preview`}
                   width='999'
                   height='520'></iframe>
-                <div
+                {/* <div
                   style={{
                     position: 'absolute',
                     top: '10px',
@@ -168,7 +175,7 @@ const GoogleDriveVideo: React.FC = () => {
                   <IconButton onClick={handleMuteUnmute} style={{ color: 'white' }}>
                     {muted ? <VolumeOff /> : <VolumeUp />}
                   </IconButton>
-                </div>
+                </div> */}
                 <span
                   style={{
                     color: 'white',

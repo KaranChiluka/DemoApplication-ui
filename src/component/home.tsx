@@ -9,7 +9,7 @@ import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import ConstructionIcon from '@mui/icons-material/Construction';
 // import SchoolIcon from '@mui/icons-material/School';
 
-import { Grid } from '@mui/material';
+import { Backdrop, CircularProgress, Grid } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import SchoolIcon from '@mui/icons-material/School';
 import { useEffect, useState } from 'react';
@@ -43,13 +43,13 @@ const Home = () => {
         label: 'Calculator',
       },
       {
-        name: 'Calculator',
+        name: 'Wheel',
         img: img4,
         url: '/calculator',
         label: 'Calculator',
       },
       {
-        name: 'Calculator',
+        name: 'Random Picker',
         img: img4,
         url: '/calculator',
         label: 'Calculator',
@@ -73,6 +73,7 @@ const Home = () => {
 
   const [selectedTab, setSelectedTab] = useState('Course');
   const [selectedItem, setSelectedItem] = useState([] as any[]);
+  const [loading, setLoading] = useState(false);
   // const [courses, setCourses] = useState([] as any[]);
 
   const handleClick = (tab: string) => {
@@ -80,16 +81,21 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getVideosfiles()
-      .then((resp) => {
-        setSelectedItem(resp.data);
-        // setCourses(resp.data);
-        console.log(resp.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+    if (selectedTab == 'Course') {
+      setLoading(true);
+      getVideosfiles()
+        .then((resp) => {
+          setSelectedItem(resp.data);
+          // setCourses(resp.data);
+          console.log(resp.data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log(err);
+        });
+    }
+  }, [selectedTab]);
 
   return (
     <div className='home'>
@@ -108,7 +114,6 @@ const Home = () => {
               }
               onClick={() => {
                 handleClick('Course');
-                setSelectedItem(details.courses);
               }}>
               <p className='list-text'>Course</p>
               <SchoolIcon className='list-icons-settings' />
@@ -149,7 +154,15 @@ const Home = () => {
           height='480'
           allow='autoplay'></iframe> */}
         <Grid item>
-          <GameCard gamesDetails={selectedItem} />
+          {!loading ? (
+            <GameCard gamesDetails={selectedItem} />
+          ) : (
+            <Backdrop
+              sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+              open={true}>
+              <CircularProgress color='inherit' />
+            </Backdrop>
+          )}
         </Grid>
       </Grid>
     </div>
