@@ -2,7 +2,8 @@ import axios, { AxiosError } from 'axios';
 // import { redirectToLogin } from './commonUtils';
 
 const axiosClient = axios.create({
-  baseURL: 'https://demoapplicationapi-production.up.railway.app/',
+  baseURL: 'https://demoapplicationapi-production.up.railway.app/api',
+  // baseURL: 'http://localhost:8081/api',
 });
 
 axiosClient.interceptors.request.use((config) => {
