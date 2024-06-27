@@ -1,12 +1,14 @@
 import axios, { AxiosError } from 'axios';
-import { redirectToLogin } from './commonUtils';
+// import { redirectToLogin } from './commonUtils';
 
 const axiosClient = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
+  baseURL: 'https://demoapplicationapi-production.up.railway.app/api',
+  // baseURL: 'http://localhost:8081/api',
 });
 
 axiosClient.interceptors.request.use((config) => {
-  config.headers.token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
+  config.headers.Authorization = 'Bearer' + token;
   return config;
 });
 
@@ -16,7 +18,7 @@ axiosClient.interceptors.response.use(
   },
   (error: AxiosError) => {
     if (error.response?.status === 401 && window.location.pathname !== '/login') {
-      redirectToLogin();
+      // redirectToLogin();
       return;
     }
     return Promise.reject(error);

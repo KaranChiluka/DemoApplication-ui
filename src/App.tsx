@@ -2,40 +2,63 @@ import './App.css';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { Navigate, Outlet } from 'react-router-dom';
-import { Box } from '@mui/material';
-import React from 'react';
+import { Backdrop, Box, CircularProgress } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import NavBar from './common/navBar';
+import { getCurrentUser } from './service/userServices';
+import globalObject from './common/global-variable';
+import { redirectToLogin } from './common/commonUtils';
 
 const getLoginUrl = () => {
   return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
 };
 
 export default function App() {
-  const token = localStorage.getItem('token');
+  const [loading, setLoading] = useState(true);
 
+  const token = localStorage.getItem('token');
+  useEffect(() => {
+    setLoading(true);
+    getCurrentUser(token)
+      .then((resp) => {
+        globalObject.userObject = resp.data;
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+        redirectToLogin();
+      });
+  }, []);
   return (
-    <div className='App'>
-      <React.Fragment>
-        {token && (
-          <div>
-            <h1>Hello</h1>
-            <>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <React.Fragment>
+      {token && (
+        <div id='detail'>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            {!loading && globalObject.userObject.id && (
+              <>
+                <NavBar />
                 <div>
                   <Box>
                     <Outlet />
                   </Box>
                 </div>
-              </LocalizationProvider>
-            </>
-          </div>
-        )}
-        {!token && (
-          <div>
-            <h1>hiiiiiii</h1>
-            <Navigate to={getLoginUrl()} />
-          </div>
-        )}
-      </React.Fragment>
-    </div>
+              </>
+            )}
+            {loading && (
+              <Backdrop
+                sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+                open={true}>
+                <CircularProgress color='inherit' />
+              </Backdrop>
+            )}
+          </LocalizationProvider>
+        </div>
+      )}
+      {!token && (
+        <div>
+          <Navigate to={getLoginUrl()} />
+        </div>
+      )}
+    </React.Fragment>
   );
 }

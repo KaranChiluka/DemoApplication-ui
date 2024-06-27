@@ -6,6 +6,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorPage from './error-page';
 import Login from './component/login';
 import Home from './component/home';
+import Signup from './component/signup';
+import UserSettings from './user-settings/userSettings';
+import FlappyBird from './component/games/flappy-bird/flappy-bird';
+import Calculator from './component/tools/calculator';
+import GoogleDriveVideo from './component/videoPlayer/googleDriveVideo';
 
 const router = createBrowserRouter([
   {
@@ -13,13 +18,33 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: '/signup',
+    element: <Signup />,
+  },
+  {
     path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: 'home',
+        path: '/home',
         element: <Home />,
+      },
+      {
+        path: '/settings',
+        element: <UserSettings />,
+      },
+      {
+        path: '/videoplayer/:courseId',
+        element: <GoogleDriveVideo />,
+      },
+      {
+        path: '/flappyBird',
+        element: <FlappyBird />,
+      },
+      {
+        path: '/calculator',
+        element: <Calculator />,
       },
     ],
   },

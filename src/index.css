@@ -4,37 +4,31 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #333;
+  /* background-image: url(assets/dark-bg2.jpg); */
+  min-width: fit-content;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #282c34;
+  border-radius: 8px;
+  border: 1px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #3e4148;
+  border: 2px solid #000;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-.form-block {
-  border: 3px solid #a72037;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  height: 100%;
-  min-height: 50vh;
-  flex-direction: column;
-  margin: auto;
-  margin-top: 10%;
-  width: 40%;
-}
-
-.new-form-field {
-  background: rgba(241, 241, 241, 0.41);
-  border: none;
-  backdrop-filter: blur(5px);
-  border-radius: 3px;
-  font-family: 'Calibri';
-  font-style: normal;
-  font-size: 20px;
-  line-height: 23px;
-  color: #ffffff;
-  width: 450px;
-  margin-bottom: 20px !important;
 }
 
 .new-login {
@@ -49,12 +43,72 @@ code {
   align-items: center;
 }
 
+.block-border {
+  border-radius: 10px;
+  margin: auto;
+  padding: 30px 30px !important ;
+  background: rgba(0, 34, 65, 0.31);
+  box-shadow: 8px 8px 8px;
+}
+
+.form-block {
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.new-form-field {
+  background: rgba(250, 250, 250, 0.7);
+  border: none;
+  backdrop-filter: blur(5px);
+  border-radius: 3px;
+  font-family: 'Calibri';
+  font-style: normal;
+  font-size: 20px;
+  line-height: 23px;
+  width: 350px;
+  margin-bottom: 20px !important;
+}
+
+.new-form-field-profile {
+  background: rgba(250, 250, 250, 0.7);
+  border: none;
+  backdrop-filter: blur(5px);
+  border-radius: 3px;
+  font-family: 'Calibri';
+  font-style: normal;
+  font-size: 20px;
+  line-height: 23px;
+  width: 170px;
+  margin-bottom: 20px !important;
+}
+
 .welcome-text {
   color: black;
   margin-top: -20px;
 }
 
+.welcome {
+  color: black;
+}
+
+.welcome:hover {
+  color: #0c5e94 !important;
+  text-decoration-style: wavy;
+}
+
 .new-form-field input {
+  padding: 12px 12px !important;
+  font-family: 'Calibri';
+  font-style: normal;
+  font-size: 13px;
+  line-height: 23px;
+  color: black;
+}
+
+.new-form-field-profile input {
   padding: 12px 12px !important;
   font-family: 'Calibri';
   font-style: normal;
@@ -71,12 +125,13 @@ code {
   font-size: 15px !important;
   line-height: 28px;
   margin-bottom: 10px !important;
+  text-align: left;
 }
 
 .btn-block button {
-  background: #a72037;
+  background: #000000;
   border-radius: 3px;
-  width: 450px;
+  width: 350px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -96,5 +151,130 @@ code {
 }
 
 .btn-block button:hover {
-  background: #a72037 !important;
+  background: #093e62 !important;
+}
+
+.btn-bg button {
+  background: #000000;
+  border-radius: 3px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 8px;
+  gap: 8px;
+  color: #ffffff;
+  font-family: 'Calibri';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-transform: capitalize;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin: auto;
+}
+
+.btn-bg button:hover {
+  background: #0c5e94 !important;
+}
+
+.signup {
+  font-family: 'Ambit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  margin-top: 15px;
+  /* text-align: left; */
+}
+
+.signup:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.err-msg {
+  margin-top: -15px;
+  color: #ff0000;
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.balloon {
+  max-width: 200px;
+}
+
+.balloon--moving {
+  animation: balloon-moving 5s ease-in-out 1s infinite alternate;
+  transform-origin: 50% 300%;
+}
+
+@keyframes balloon-moving {
+  25% {
+    transform: rotate(-2deg);
+  }
+  75% {
+    transform: rotate(2deg);
+  }
+}
+
+svg {
+  width: 100%;
+  vertical-align: middle;
+}
+
+table {
+  height: 100%;
+  min-height: 50vh;
+  width: 70%;
+  min-width: 70vw;
+}
+
+table,
+th,
+td {
+  margin: auto;
+}
+
+th {
+  border: 1px solid white;
+  border-bottom: #000000;
+  color: white;
+  background-color: rgba(100, 100, 100);
+}
+
+/* tr {
+  border: 1px solid black;
+  border-bottom: #000000;
+} */
+
+.header-name {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+.profile {
+  margin-top: 10px;
+  margin-right: 20px;
+  height: 100%;
+  min-height: 55vh;
+  box-shadow: 8px 8px 8px;
+}
+.profile-card {
+  margin-left: 20px;
+  margin-top: 15px;
+  width: 25%;
+  height: 100%;
+  min-height: 50vh;
+  box-shadow: 5px 5px 5px 3px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.global-settings {
+  margin-top: 10px;
+  margin-right: 20px;
+  height: 100%;
+  min-height: 80vh;
+  box-shadow: 8px 8px 8px;
 }
