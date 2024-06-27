@@ -1,5 +1,5 @@
 export function redirectToLogin() {
-  window.location.href = `/login?from=${btoa(window.location.pathname + window.location.search)}`;
+  window.location.href = '/login';
 }
 
 export function getInitials(userObj: any) {
