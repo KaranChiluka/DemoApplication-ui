@@ -10,7 +10,8 @@ import globalObject from './common/global-variable';
 import { redirectToLogin } from './common/commonUtils';
 
 const getLoginUrl = () => {
-  return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
+  // return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
+  return '/login';
 };
 
 export default function App() {
