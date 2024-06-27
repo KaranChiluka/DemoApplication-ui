@@ -10,8 +10,7 @@ import globalObject from './common/global-variable';
 import { redirectToLogin } from './common/commonUtils';
 
 const getLoginUrl = () => {
-  // return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
-  return '/login';
+  return `/login?from=${btoa(window.location.pathname + window.location.search)}`;
 };
 
 export default function App() {
@@ -19,7 +18,8 @@ export default function App() {
 
   const token = localStorage.getItem('token');
   useEffect(() => {
-    setLoading(true);
+    if(token){
+      setLoading(true);
     getCurrentUser(token)
       .then((resp) => {
         globalObject.userObject = resp.data;
@@ -29,7 +29,8 @@ export default function App() {
         setLoading(false);
         redirectToLogin();
       });
-  }, []);
+    }
+  }, [token]);
   return (
     <React.Fragment>
       {token && (
